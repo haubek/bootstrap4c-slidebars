@@ -1,0 +1,11 @@
+$offcanvas-breakpoint-desktop:          md;
+$offcanvas-breakpoint-mobile:           sm;
+$offcanvas-width:                       256px;
+$offcanvas-color:                       white;
+$offcanvas-bg-color:                    $gray-700;
+$offcanvas-duration:                    300ms;
+
+$navbar-height-desktop:                 3.75rem;
+$navbar-height-mobile:                  2.5rem;
+$navbar-toggle-offcanvas-color:         $navbar-dark-color;
+$navbar-toggle-offcanvas-right-svg:     "M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z";

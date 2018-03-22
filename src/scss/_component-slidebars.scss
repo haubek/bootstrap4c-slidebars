@@ -1,0 +1,162 @@
+body {
+  overflow-x: hidden;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+@include media-breakpoint-down($offcanvas-breakpoint-desktop) {
+
+  html, body, [canvas="container"],
+  [off-canvas] {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  [canvas] {
+    z-index: 1;
+  }
+
+  [canvas="container"] {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    background-color: $body-bg;
+    box-shadow: 0 8px 0px 0px white, 0 -8px 0px 0px white, 8px 0 8px -4px rgba(0,0,0,.2), -8px 0 8px -4px rgba(0,0,0,.2);
+    -webkit-overflow-scrolling: touch;
+    &:before, &:after {
+      clear: both;
+      content: '';
+      display: table;
+    }
+  }
+
+  [off-canvas] {
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: $offcanvas-bg-color;
+    color: $offcanvas-color;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  [off-canvas*="top"] {
+    width: 100%;
+    height: $offcanvas-width;
+    top: 0;
+  }
+
+  [off-canvas*="right"] {
+    width: $offcanvas-width;
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
+
+  [off-canvas*="bottom"] {
+    width: 100%;
+    height: $offcanvas-width;
+    bottom: 0;
+  }
+
+  [off-canvas*="left"] {
+    width: $offcanvas-width;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  [off-canvas*="reveal"] {
+    z-index: 0;
+  }
+
+  [off-canvas*="push"] {
+    z-index: 1;
+  }
+
+  [off-canvas*="overlay"] {
+    z-index: 9999;
+  }
+
+  [off-canvas*="shift"] {
+    z-index: 0;
+  }
+
+  [canvas], [off-canvas] {
+    transform: translate(0px, 0px);
+    transition: transform $offcanvas-duration;
+    -webkit-backface-visibility: hidden;
+  }
+
+  [off-canvas*="shift"] {
+    &[off-canvas*="top"] {
+      transform: translate(0px, 50%);
+    }
+    &[off-canvas*="right"] {
+      transform: translate(-50%, 0px);
+    }
+    &[off-canvas*="bottom"] {
+      transform: translate(0px, -50%);
+    }
+    &[off-canvas*="left"] {
+      transform: translate(50%, 0px);
+    }
+  }
+
+  @media print {
+    [canvas] {
+      transform: translate(0px, 0px) !important;
+    }
+    [off-canvas] {
+      display: none !important;
+    }
+  }
+}
+
+nav {
+  &.offcanvas {
+    height: $navbar-height-mobile;
+    .navbar-toggler {
+      width: $navbar-height-mobile;
+      height: $navbar-height-mobile;
+      margin: 0;
+      padding: .25rem;
+      background-size: 100% 100%;
+      border: 0;
+      border-radius: 0;
+      &.navbar-toggle-offcanvas-right {
+        .navbar-toggler-icon {
+          width: $navbar-height-mobile;
+          height: $navbar-height-mobile;
+          margin-top: -.25rem;
+          margin-left: -.25rem;
+          background-size: ($navbar-height-mobile / 4) * 3;
+          background-position: 0 .125rem;
+          background-image: svg-uri("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='#{$navbar-toggle-offcanvas-color}' d='#{$navbar-toggle-offcanvas-right-svg}'/></svg>");
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down($offcanvas-breakpoint-mobile) {
+  .offcanvas-desktop {
+    display: none;
+  }
+  main.container {
+    margin-top: $navbar-height-mobile;
+  }
+}
+
+@include media-breakpoint-up($offcanvas-breakpoint-desktop) {
+  [canvas="mobile"],
+  [off-canvas] {
+    display: none;
+  }
+  main.container {
+    margin-top: $navbar-height-desktop;
+  }
+}
