@@ -914,11 +914,11 @@ gulp-sass@^2.1.0:
     through2 "^2.0.0"
     vinyl-sourcemaps-apply "^0.2.0"
 
-gulp-strip-css-comments@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/gulp-strip-css-comments/-/gulp-strip-css-comments-1.2.0.tgz#fe79863ce32f50dd4cbe8d0db56f476c86cfb9b8"
+gulp-strip-css-comments@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-strip-css-comments/-/gulp-strip-css-comments-2.0.0.tgz#6cb7ecc388cbbc9bf6cd9aba24112e6a8373640b"
   dependencies:
-    gulp-util "^3.0.0"
+    plugin-error "^0.1.2"
     strip-css-comments "^3.0.0"
     through2 "^2.0.0"
 
